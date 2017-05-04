@@ -1,0 +1,48 @@
+
+对应10张表格中的数据，程序中所需要整理的属性字段及其对应关系如下
+
+# str1 = fc['cert_time'] + '\t' + fc['cert']  # resume_cert
+
+# str1 = fc['edu_start_time'] + '\t' + fc['edu_end_time'] + '\t' +fc['school_name']+ '\t' +fc['edu_major']+ '\t' +fc['education']+ '\t' +fc['major_desc'] # resume_education
+
+# str1 = fc['work_begin_time'] + '\t'+ fc['work_end_time']+ '\t' +fc['work_in_company']+ '\t' +fc['work_department']+ '\t' +fc['work_position']+ '\t' +fc['work_abstract']+ '\t' +fc['work_grade']+ '\t' +fc['work_xiashu_num']+ '\t' +fc['company_industry']+ '\t' +fc['leave_reason']+ '\t' +fc['reference']  # resume_workexp
+
+# str1 = fc['start_date'] + '\t' + fc['end_date']+ '\t' +fc['perject_name']+ '\t' +fc['project_desc']+ '\t' +fc['project_grade']+ '\t' +fc['soft_env']+ '\t' +fc['hard_env']  # resume_project
+
+# str1 = fc['title'] + '\t' + fc['remark']  # resume_appendinfo
+
+# str1 = fc['start_time'] + '\t' + fc['end_time'] + '\t' +fc['practice_duty']+ '\t' +fc['practice_type']+ '\t' +fc['practice_desc'] # resume_practice
+
+# str1 = fc['language'] + '\t' + fc['level_id']  #  resume_language
+
+# str1 = fc['start_time'] + '\t' + fc['end_time']+ '\t' +fc['school']+ '\t' +fc['location']+ '\t' +fc['course']+ '\t' +fc['cert_name']+ '\t' +fc['training_desc'] # resume_training
+
+# str1 = fc['skill_type'] + '\t' + fc['use_time'] + '\t' +fc['level_id'] # resume_itskill
+
+ # 查找resume_cert中是否存在{"id", item['id']}数据对
+# find_cursor = db.resume_cert.find({"id": item['id']}, {"cert": 1, "cert_time": 1})
+
+# find_cursor = db.resume_education.find({"id": item['id']},{"edu_start_time": 1, "edu_end_time": 1, "school_name": 1,"edu_major": 1, "education": 1})
+
+find_cursor = db.resume_workexp.find({"id": item['id']},
+                                     {"work_begin_time": 1, "work_end_time": 1, "work_in_company": 1,
+                                      "work_department": 1, "work_position": 1, "work_abstract": 1,
+                                      "work_grade": 1, "work_xiashu_num": 1, "company_industry": 1,"leave_reason": 1, "reference": 1, })
+
+# find_cursor = db.resume_project.find({"id": item['id']},
+#                                      {"start_date": 1, "end_date": 1, "perject_name": 1, "project_desc": 1,
+#                                       "project_grade": 1, "soft_env": 1, "hard_env": 1})
+
+# find_cursor = db.resume_appendinfo.find({"id": item['id']}, {"title": 1, "remark": 1})
+
+# find_cursor = db.resume_practice.find({"id": item['id']},
+#                                       {"start_time": 1, "end_time": 1, "practice_duty": 1,
+#                                        "practice_type": 1, "practice_desc": 1})
+
+# find_cursor = db.resume_language.find({"id": item['id']}, {"language": 1, "level_id": 1})
+
+# find_cursor = db.resume_training.find({"id": item['id']},
+#                                      {"start_time": 1, "end_time": 1, "school": 1, "location": 1,
+#                                       "course": 1, "cert_name": 1, "training_desc": 1})
+
+# find_cursor = db.resume_itskill.find({"id": item['id']}, {"skill_type": 1, "use_time": 1,"level_id": 1})

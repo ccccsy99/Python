@@ -1,0 +1,35 @@
+mongodb
+
+实现功能：对MDF3_6_Resume数据库中的十张表，通过“id”的关联，将其他表中的数据整合到resume_info表格中相应的字段中。
+Resume_info
+resume_cert
+resume_education
+resume_workexp
+resume_project
+resume_appendinfo
+resume_practice
+resume_language
+resume_training
+resume_itskill
+
+ip:192.168.6.62
+远程访问：root：******  PW：******
+
+
+show dbs
+mongodb数据库（测试用）MDF3_6_330W
+use MDF3_6_330W
+show collections
+resume_info 与 resume_cert两张表
+
+表格之间数据关联通过‘id’属性来关联，
+比如：resume_info 与 resume_cert两张表，表格之间数据关联通过‘id’属性，要实现的功能是：将resume_cert表格中的证书信息（cert_time+cert）整合一起存入到resume_info表中的person_certification字段中。
+一个id下的证书信息可能会有多条，将所有信息累加后存入person_certification字段中。
+
+
+一个id下的证书信息可能会有多条，将所有信息得到后存入person_certification字段中
+
+代码在join_data.py
+
+db.resume_info.find({'id':'6621087'}).pretty()
+
